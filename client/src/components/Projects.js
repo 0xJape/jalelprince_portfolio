@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { getProjects } from '../services/api';
+import React, { useState } from 'react';
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
+const Projects = ({ projects = [], loading }) => {
   const [activeFilter, setActiveFilter] = useState('All');
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const data = await getProjects();
-      setProjects(data);
-    };
-    fetchProjects();
-  }, []);
 
   // Get unique technologies for filter
   const allTechnologies = ['All', ...new Set(projects.flatMap(p => p.technologies || []))];

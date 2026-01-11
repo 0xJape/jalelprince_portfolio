@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { getProfile } from '../services/api';
+import React from 'react';
 
-const About = () => {
-  const [profile, setProfile] = useState(null);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const data = await getProfile();
-      setProfile(data);
-    };
-    fetchProfile();
-  }, []);
+const About = ({ profile, loading }) => {
 
   // Skill categories with actual technology logos
   const skillCategories = [

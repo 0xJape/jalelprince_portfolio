@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { getProfile } from '../services/api';
+import React from 'react';
 
-const Hero = () => {
-  const [profile, setProfile] = useState(null);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const data = await getProfile();
-      setProfile(data);
-    };
-    fetchProfile();
-  }, []);
+const Hero = ({ profile, loading }) => {
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');

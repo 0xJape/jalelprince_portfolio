@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { getExperience, getEducation } from '../services/api';
+import React, { useState } from 'react';
 
-const Experience = () => {
-  const [experiences, setExperiences] = useState([]);
-  const [education, setEducation] = useState([]);
+const Experience = ({ experiences = [], education = [], loading }) => {
   const [activeTab, setActiveTab] = useState('experience');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const expData = await getExperience();
-      const eduData = await getEducation();
-      setExperiences(expData);
-      setEducation(eduData);
-    };
-    fetchData();
-  }, []);
 
   const ExperienceCard = ({ item, index }) => (
     <div 

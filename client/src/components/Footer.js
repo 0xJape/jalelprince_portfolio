@@ -56,7 +56,9 @@ const Footer = () => {
             <h4 className="text-white font-heading font-semibold mb-4">Connect</h4>
             <div className="flex gap-4 md:justify-end">
               <a 
-                href="#" 
+                href="https://linkedin.com/in/jalelprincegayo" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all"
                 aria-label="LinkedIn"
               >
@@ -65,7 +67,9 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://github.com/0xJape" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all"
                 aria-label="GitHub"
               >
@@ -74,7 +78,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="mailto:jalelgayo17@gmail.com" 
                 className="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-all"
                 aria-label="Email"
               >

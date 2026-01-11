@@ -51,12 +51,12 @@ const Hero = () => {
 
           {/* Name */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 leading-tight" data-aos="fade-up">
-            {profile?.name || 'Your Name'}
+            {profile?.name || 'Jalel Prince G. Gayo'}
           </h1>
           
           {/* Role with Gradient */}
           <h2 className="text-2xl md:text-4xl font-heading font-semibold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6" data-aos="fade-up" data-aos-delay="100">
-            {profile?.role || 'Your Role'}
+            {profile?.role || 'Virtual Assistant'}
           </h2>
           
           {/* Tagline */}

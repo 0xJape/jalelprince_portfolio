@@ -10,12 +10,17 @@ async function connectToDatabase(uri) {
 
   console.log('Creating new database connection');
   
+  // Disable buffering to get immediate errors instead of timeouts
+  mongoose.set('bufferCommands', false);
+  
   const db = await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 30000,
     socketTimeoutMS: 45000,
     connectTimeoutMS: 30000,
+    bufferCommands: false,
+    maxPoolSize: 1, // Limit connection pool for serverless
   });
 
   cachedDb = db;

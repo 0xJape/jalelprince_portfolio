@@ -8,12 +8,14 @@ async function connectToDatabase(uri) {
     return cachedDb;
   }
 
-  console.log('Creating new database connection to:', uri.split('@')[1]?.split('?')[0]);
+  console.log('Creating new database connection');
   
   const db = await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 10000,
+    serverSelectionTimeoutMS: 30000,
+    socketTimeoutMS: 45000,
+    connectTimeoutMS: 30000,
   });
 
   cachedDb = db;

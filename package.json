@@ -13,6 +13,9 @@
   "keywords": ["portfolio", "react", "nodejs", "mongodb"],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "mongoose": "^8.0.3"
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }

@@ -61,7 +61,7 @@ const Hero = () => {
           
           {/* Tagline */}
           <p className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-            {profile?.tagline || 'Your tagline goes here'}
+            {profile?.tagline || 'Leveraging technology to streamline tasks, improve workflows, and deliver practical solutions.'}
           </p>
           
           {/* CTA Buttons */}

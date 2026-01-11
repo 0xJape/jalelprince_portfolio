@@ -81,15 +81,19 @@ When answering questions, give SHORT, direct answers (2-4 sentences max) that em
     
     if (data.error) {
       console.error('Gemini API error:', data.error);
-      return res.status(500).json({ error: 'Failed to get response from AI' });
+      return res.status(200).json({ 
+        reply: "I'm temporarily having trouble connecting to my knowledge base. In the meantime, feel free to reach out to Jalel directly at jalelgayo17@gmail.com — he'd love to hear from you! 📧" 
+      });
     }
 
     const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 
-                  "I'm sorry, I couldn't process that. Please try again!";
+                  "That's a great question! I'm not quite sure how to answer that one, but Jalel would be happy to discuss it with you personally. Drop him a message at jalelgayo17@gmail.com! 😊";
 
     res.status(200).json({ reply });
   } catch (error) {
     console.error('Chatbot error:', error);
-    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    res.status(200).json({ 
+      reply: "Oops! I hit a small bump there. While I get back on track, you can always reach Jalel directly at jalelgayo17@gmail.com — he responds quickly! 🚀" 
+    });
   }
 };

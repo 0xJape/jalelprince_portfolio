@@ -14,10 +14,18 @@ module.exports = async (req, res) => {
   }
 
   try {
-    await connectToDatabase(process.env.MONGODB_URI);
+    const mongoUri = process.env.MONGODB_URI;
+    
+    if (!mongoUri) {
+      console.error('MONGODB_URI not set');
+      return res.status(500).json({ error: 'Database configuration missing' });
+    }
+
+    await connectToDatabase(mongoUri);
 
     if (req.method === 'GET') {
       const profile = await Profile.findOne();
+      console.log('Profile fetched:', profile ? 'found' : 'not found');
       res.status(200).json(profile);
     } else if (req.method === 'POST') {
       const profile = await Profile.findOneAndUpdate({}, req.body, { 
@@ -29,7 +37,7 @@ module.exports = async (req, res) => {
       res.status(405).json({ error: 'Method not allowed' });
     }
   } catch (error) {
-    console.error('Profile API error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error('Profile API error:', error.message, error.stack);
+    res.status(500).json({ error: 'Internal server error', details: error.message });
   }
 };

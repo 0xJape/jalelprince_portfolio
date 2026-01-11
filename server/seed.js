@@ -64,15 +64,37 @@ const profileData = {
 
 const projectsData = [
   {
-    title: 'Brand Identity Design',  // ← Project name
-    description: 'Complete brand identity package including logo design, color palette, and brand guidelines for a startup.',  // ← Project description
-    technologies: ['Adobe Illustrator', 'Photoshop', 'Branding'],  // ← Tools/Skills used
-    year: '2026',  // ← Year completed
-    imageUrl: '',  // ← Project image URL (upload to imgur.com)
-    videoUrl: '',  // ← YouTube embed URL (optional, overrides image)
-    githubUrl: '',  // ← Portfolio/case study URL (optional)
-    liveUrl: '',  // ← Live demo/client website URL (optional)
+    title: 'JuanHome — The Smart Real Estate Platform for Buyers, Sellers, and Agents',
+    description: 'JuanHome is the modern way to search, list, and manage real estate in the Philippines. Featuring AI-powered recommendations, smart search with map integration, and a seamless listing experience for sellers and agents — all in one platform.',
+    technologies: ['Web Development', 'AI', 'Map Integration', 'Real Estate Tech'],
+    year: '2026',
+    imageUrl: '',
+    videoUrl: 'https://www.youtube.com/embed/OXKBGy9RPW8',
+    githubUrl: '',
+    liveUrl: 'https://youtu.be/OXKBGy9RPW8',
     order: 1,
+  },
+  {
+    title: 'HerdSync — A Livestock Management Information System',
+    description: 'HerdSync is a web-based livestock management information system designed for efficient record-keeping, health monitoring, and breeding management for cattle, goats, and sheep.',
+    technologies: ['Web Development', 'Database Management', 'Information Systems', 'PHP', 'MySQL'],
+    year: '2026',
+    imageUrl: '',
+    videoUrl: 'https://www.youtube.com/embed/QjWcWi4S2cE',
+    githubUrl: '',
+    liveUrl: 'https://youtu.be/QjWcWi4S2cE',
+    order: 2,
+  },
+  {
+    title: 'Restaurant Brand Identity & Menu Design',
+    description: 'Complete logo design and menu layout for a restaurant. Created a cohesive brand identity including custom logo, color scheme, typography, and professionally designed menu layouts that reflect the restaurant\'s unique character and appeal to their target audience.',
+    technologies: ['Canva', 'Graphic Design', 'Branding', 'Logo Design', 'Menu Design'],
+    year: '2026',
+    imageUrl: 'https://i.imgur.com/SYREbEI.jpeg',
+    videoUrl: '',
+    githubUrl: '',
+    liveUrl: '',
+    order: 3,
   },
   {
     title: 'E-Commerce Website',
@@ -83,7 +105,7 @@ const projectsData = [
     videoUrl: '',
     githubUrl: '',
     liveUrl: '',
-    order: 2,
+    order: 4,
   },
   {
     title: 'Social Media Campaign',
@@ -94,7 +116,7 @@ const projectsData = [
     videoUrl: '',
     githubUrl: '',
     liveUrl: '',
-    order: 3,
+    order: 5,
   },
   // Copy any block above to add more projects
 ];

@@ -31,7 +31,8 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/chatbot', {
+      // Use Vercel serverless function for chatbot
+      const response = await axios.post('/api/chatbot', {
         message: userMessage
       });
       

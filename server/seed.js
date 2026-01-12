@@ -125,13 +125,34 @@ const projectsData = [
 
 const experienceData = [
   {
-    role: 'Freelance Digital Professional',  // ← Your position/role
-    company: 'Self-Employed',  // ← Company name (or "Self-Employed", "Freelance", "Independent Contractor")
-    startDate: 'Jan 2024',  // ← Start date
-    endDate: '',  // ← End date (leave empty if current)
-    current: true,  // ← Set to true if this is your current job
-    description: 'Providing web development, design, and digital marketing services to clients worldwide. Specialized in helping small businesses establish their online presence.',  // ← Job description
+    role: 'Freelance Digital Professional',
+    company: 'Self-Employed',
+    startDate: 'Jan 2024',
+    endDate: '',
+    current: true,
+    description: 'Providing web development, design, and digital marketing services to clients worldwide. Specialized in helping small businesses establish their online presence.',
+    skills: ['Web Development', 'Digital Marketing', 'Branding', 'Client Management'],
     order: 1,
+  },
+  {
+    role: 'Full-Stack Systems Developer & UI/UX Designer',
+    company: 'Multiple Clients',
+    startDate: 'Jan 2025',
+    endDate: '',
+    current: true,
+    description: 'Developing end-to-end web applications and creating intuitive user interfaces using Figma for diverse clients. Specializing in custom system solutions, database architecture, and modern web technologies to deliver scalable and user-friendly applications.',
+    skills: ['Full-Stack Development', 'Figma', 'UI/UX Design', 'System Architecture', 'Database Design'],
+    order: 2,
+  },
+  {
+    role: 'Research Consultant & Programmer',
+    company: 'Tupi Robotics Club',
+    startDate: 'Jan 2022',
+    endDate: 'Dec 2024',
+    current: false,
+    description: 'Led research initiatives and developed custom software solutions for robotics projects. Collaborated with teams to design, program, and implement automation systems while providing technical consultation on emerging technologies and best practices.',
+    skills: ['Research & Development', 'Programming', 'Robotics', 'Technical Consultation', 'Automation'],
+    order: 3,
   },
   {
     role: 'Web Developer & Designer',
@@ -140,9 +161,19 @@ const experienceData = [
     endDate: 'Dec 2023',
     current: false,
     description: 'Delivered 20+ successful projects including websites, logos, and marketing materials for diverse clients across different industries.',
-    order: 2,
+    skills: ['Web Development', 'Graphic Design', 'Branding', 'Project Management'],
+    order: 4,
   },
-  // Add more experience entries by copying the block above
+  {
+    role: 'Content Writer & Videographer',
+    company: 'Ang Sulyap',
+    startDate: 'Jan 2021',
+    endDate: 'Dec 2021',
+    current: false,
+    description: 'Created engaging written content and produced high-quality video materials. Managed the full content creation pipeline from concept development to final production, ensuring brand consistency and audience engagement.',
+    skills: ['Content Writing', 'Videography', 'Video Editing', 'Storytelling', 'Content Strategy'],
+    order: 5,
+  },
 ];
 
 // ✏️ ADD YOUR EDUCATION HERE

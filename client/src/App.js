@@ -32,18 +32,40 @@ function App() {
   // Fetch all data in parallel on mount
   useEffect(() => {
     const fetchAllData = async () => {
+      const startTime = Date.now();
+      const minLoadingTime = 800; // Minimum 800ms for smooth transition
+      const maxLoadingTime = 3000; // Maximum 3 seconds, then show content anyway
+      
       try {
-        const [profileData, projectsData, experienceData, educationData] = await Promise.all([
-          getProfile(),
-          getProjects(),
-          getExperience(),
-          getEducation()
+        // Set a timeout to force loading to complete after max time
+        const timeoutPromise = new Promise(resolve => 
+          setTimeout(() => resolve('timeout'), maxLoadingTime)
+        );
+        
+        const dataPromise = Promise.all([
+          getProfile().catch(err => { console.error('Profile error:', err); return null; }),
+          getProjects().catch(err => { console.error('Projects error:', err); return []; }),
+          getExperience().catch(err => { console.error('Experience error:', err); return []; }),
+          getEducation().catch(err => { console.error('Education error:', err); return []; })
         ]);
         
-        setProfile(profileData);
-        setProjects(projectsData);
-        setExperiences(experienceData);
-        setEducation(educationData);
+        const result = await Promise.race([dataPromise, timeoutPromise]);
+        
+        if (result !== 'timeout') {
+          const [profileData, projectsData, experienceData, educationData] = result;
+          setProfile(profileData);
+          setProjects(projectsData);
+          setExperiences(experienceData);
+          setEducation(educationData);
+        } else {
+          console.warn('Loading timed out, showing content with available data');
+        }
+        
+        // Ensure minimum loading time for smooth UX
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime < minLoadingTime) {
+          await new Promise(resolve => setTimeout(resolve, minLoadingTime - elapsedTime));
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {

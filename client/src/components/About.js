@@ -83,7 +83,23 @@ const About = ({ profile, loading }) => {
       color: 'from-indigo-500 to-blue-600',
       skills: [
         { name: 'ChatGPT', logo: 'https://img.icons8.com/color/48/chatgpt.png' },
+        { name: 'Gemini', logo: 'https://img.icons8.com/color/48/google-logo.png' },
+        { name: 'Claude', logo: 'https://img.icons8.com/color/48/artificial-intelligence.png' },
+        { name: 'GitHub Copilot', logo: 'https://img.icons8.com/color/48/github--v1.png' },
         { name: 'GoHighLevel', logo: 'https://img.icons8.com/color/48/rocket.png' },
+      ],
+    },
+    {
+      title: 'Trading Tools',
+      icon: '📊',
+      color: 'from-green-500 to-emerald-600',
+      skills: [
+        { name: 'Forex Factory', logo: 'https://img.icons8.com/color/48/stock-exchange.png' },
+        { name: 'TradingView', logo: 'https://img.icons8.com/color/48/combo-chart--v1.png' },
+        { name: 'MetaTrader 5', logo: 'https://img.icons8.com/color/48/graph.png' },
+        { name: 'Binance', logo: 'https://img.icons8.com/color/48/binance.png' },
+        { name: 'OKX', logo: 'https://img.icons8.com/color/48/bitcoin--v1.png' },
+        { name: 'MetaMask', logo: 'https://img.icons8.com/color/48/metamask-logo.png' },
       ],
     },
   ];

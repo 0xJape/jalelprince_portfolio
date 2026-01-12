@@ -16,7 +16,7 @@ const profileData = {
   email: 'jalelgayo17@gmail.com',  // ← Your email
   linkedin: 'https://linkedin.com/in/yourprofile',  // ← Your LinkedIn URL
   github: 'https://github.com/0xJape',  // ← Your GitHub URL
-  resumeUrl: 'https://your-resume-link.com/resume.pdf',  // ← Link to your resume
+  resumeUrl: 'https://drive.google.com/uc?export=download&id=1vIU9SQd6EPid6rslv987Ii5suy5_XgHi',  // ← Link to your resume
   profileImageUrl: 'https://i.imgur.com/pBa3TP5.png',  // ← Your profile image URL (optional, upload to imgur.com)
   skills: [
     'Microsoft Office',

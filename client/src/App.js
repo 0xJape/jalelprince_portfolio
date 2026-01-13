@@ -20,6 +20,7 @@ function App() {
   const [experiences, setExperiences] = useState([]);
   const [education, setEducation] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     AOS.init({
@@ -68,6 +69,7 @@ function App() {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -86,6 +88,37 @@ function App() {
   // Show loading screen while fetching data
   if (loading) {
     return <LoadingScreen />;
+  }
+
+  // Show error message if environment variables are missing
+  if (error && error.includes('environment variables')) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column',
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        minHeight: '100vh',
+        padding: '20px',
+        textAlign: 'center',
+        background: '#1a1a2e',
+        color: '#fff'
+      }}>
+        <h1 style={{ fontSize: '24px', marginBottom: '20px' }}>Configuration Error</h1>
+        <p style={{ marginBottom: '10px' }}>Missing required environment variables.</p>
+        <p style={{ fontSize: '14px', color: '#888' }}>Please check Vercel environment variables settings.</p>
+        <pre style={{ 
+          marginTop: '20px', 
+          padding: '15px', 
+          background: '#0f0f1e', 
+          borderRadius: '8px',
+          fontSize: '12px',
+          textAlign: 'left'
+        }}>
+          {error}
+        </pre>
+      </div>
+    );
   }
 
   return (

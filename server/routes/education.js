@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const Education = require('../models/Education');
+const { supabase } = require('../config/supabase');
 
 // Get all education entries
 router.get('/', async (req, res) => {
   try {
-    const education = await Education.find().sort({ order: 1, startDate: -1 });
-    res.json(education);
+    const { data, error } = await supabase
+      .from('education')
+      .select('*')
+      .order('order', { ascending: true })
+      .order('start_date', { ascending: false });
+    
+    if (error) throw error;
+    res.json(data || []);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -14,10 +20,15 @@ router.get('/', async (req, res) => {
 
 // Create education entry
 router.post('/', async (req, res) => {
-  const education = new Education(req.body);
   try {
-    const newEducation = await education.save();
-    res.status(201).json(newEducation);
+    const { data, error } = await supabase
+      .from('education')
+      .insert([req.body])
+      .select()
+      .single();
+    
+    if (error) throw error;
+    res.status(201).json(data);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -26,15 +37,20 @@ router.post('/', async (req, res) => {
 // Update education entry
 router.put('/:id', async (req, res) => {
   try {
-    const education = await Education.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    if (!education) {
-      return res.status(404).json({ message: 'Education not found' });
+    const { data, error } = await supabase
+      .from('education')
+      .update(req.body)
+      .eq('id', req.params.id)
+      .select()
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return res.status(404).json({ message: 'Education not found' });
+      }
+      throw error;
     }
-    res.json(education);
+    res.json(data);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -43,10 +59,12 @@ router.put('/:id', async (req, res) => {
 // Delete education entry
 router.delete('/:id', async (req, res) => {
   try {
-    const education = await Education.findByIdAndDelete(req.params.id);
-    if (!education) {
-      return res.status(404).json({ message: 'Education not found' });
-    }
+    const { error } = await supabase
+      .from('education')
+      .delete()
+      .eq('id', req.params.id);
+    
+    if (error) throw error;
     res.json({ message: 'Education deleted' });
   } catch (error) {
     res.status(500).json({ message: error.message });

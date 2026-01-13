@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const Experience = require('../models/Experience');
+const { supabase } = require('../config/supabase');
 
 // Get all experience entries
 router.get('/', async (req, res) => {
   try {
-    const experiences = await Experience.find().sort({ order: 1, startDate: -1 });
-    res.json(experiences);
+    const { data, error } = await supabase
+      .from('experiences')
+      .select('*')
+      .order('order', { ascending: true })
+      .order('start_date', { ascending: false });
+    
+    if (error) throw error;
+    res.json(data || []);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -14,10 +20,15 @@ router.get('/', async (req, res) => {
 
 // Create experience entry
 router.post('/', async (req, res) => {
-  const experience = new Experience(req.body);
   try {
-    const newExperience = await experience.save();
-    res.status(201).json(newExperience);
+    const { data, error } = await supabase
+      .from('experiences')
+      .insert([req.body])
+      .select()
+      .single();
+    
+    if (error) throw error;
+    res.status(201).json(data);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -26,15 +37,20 @@ router.post('/', async (req, res) => {
 // Update experience entry
 router.put('/:id', async (req, res) => {
   try {
-    const experience = await Experience.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
+    const { data, error } = await supabase
+      .from('experiences')
+      .update(req.body)
+      .eq('id', req.params.id)
+      .select()
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return res.status(404).json({ message: 'Experience not found' });
+      }
+      throw error;
     }
-    res.json(experience);
+    res.json(data);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -43,10 +59,12 @@ router.put('/:id', async (req, res) => {
 // Delete experience entry
 router.delete('/:id', async (req, res) => {
   try {
-    const experience = await Experience.findByIdAndDelete(req.params.id);
-    if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
-    }
+    const { error } = await supabase
+      .from('experiences')
+      .delete()
+      .eq('id', req.params.id);
+    
+    if (error) throw error;
     res.json({ message: 'Experience deleted' });
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -158,9 +158,9 @@ const Contact = () => {
                         Send Email via Gmail
                       </a>
                     )}
-                    {profile?.resumeUrl && (
+                    {profile?.resume_url && (
                       <a
-                        href={profile.resumeUrl}
+                        href={profile.resume_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full bg-white border-2 border-slate-200 hover:border-primary text-slate-700 hover:text-primary px-6 py-4 rounded-xl font-semibold transition-all duration-300"

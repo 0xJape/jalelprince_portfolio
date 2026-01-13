@@ -129,9 +129,9 @@ const About = ({ profile, loading }) => {
             <div className="grid md:grid-cols-5 gap-0">
               {/* Left: Image */}
               <div className="md:col-span-2 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-8 flex items-center justify-center">
-                {profile?.profileImageUrl ? (
+                {profile?.profile_image_url ? (
                   <img
-                    src={profile.profileImageUrl}
+                    src={profile.profile_image_url}
                     alt={profile.name}
                     className="rounded-2xl w-full max-w-xs shadow-2xl"
                   />

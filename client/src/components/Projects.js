@@ -64,10 +64,10 @@ const Projects = ({ projects = [], loading }) => {
               >
                 {/* Media Container */}
                 <div className="relative h-56 overflow-hidden">
-                  {project.videoUrl ? (
+                  {project.video_url ? (
                     <div className="w-full h-full bg-slate-900">
                       <iframe
-                        src={project.videoUrl}
+                        src={project.video_url}
                         title={project.title}
                         className="w-full h-full"
                         frameBorder="0"
@@ -75,10 +75,10 @@ const Projects = ({ projects = [], loading }) => {
                         allowFullScreen
                       ></iframe>
                     </div>
-                  ) : project.imageUrl ? (
+                  ) : project.image_url ? (
                     <>
                       <img
-                        src={project.imageUrl}
+                        src={project.image_url}
                         alt={project.title}
                         className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                       />
@@ -126,9 +126,9 @@ const Projects = ({ projects = [], loading }) => {
 
                   {/* Action Links */}
                   <div className="flex gap-3 pt-4 border-t border-white/10">
-                    {project.githubUrl && (
+                    {project.github_url && (
                       <a
-                        href={project.githubUrl}
+                        href={project.github_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-300 hover:text-white text-sm font-medium transition-all border border-white/10"
@@ -139,9 +139,9 @@ const Projects = ({ projects = [], loading }) => {
                         Code
                       </a>
                     )}
-                    {project.liveUrl && (
+                    {project.live_url && (
                       <a
-                        href={project.liveUrl}
+                        href={project.live_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-lg text-white text-sm font-medium transition-all"

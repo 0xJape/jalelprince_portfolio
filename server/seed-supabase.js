@@ -1,3 +1,4 @@
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const { supabase } = require('./config/supabase');
 
 async function seedData() {
@@ -45,7 +46,7 @@ async function seedData() {
     // Add projects
     const projects = [
       {
-        title: 'JuanHome — The Smart Real Estate Platform for Buyers, Sellers, and Agents',
+        title: 'JuanHome — The Smart Real Estate Platform for Buyers, Sellers, and Agents - Systems Analyst',
         description: 'JuanHome is the modern way to search, list, and manage real estate in the Philippines. Featuring AI-powered recommendations, smart search with map integration, and a seamless listing experience for sellers and agents — all in one platform.',
         technologies: ['Web Development', 'AI', 'Map Integration', 'Real Estate Tech'],
         year: '2026',
@@ -67,7 +68,7 @@ async function seedData() {
         order: 2
       },
       {
-        title: 'Restaurant Brand Identity & Menu Design',
+        title: 'Restaurant Logo Design & Layout',
         description: 'Complete logo design and menu layout for a restaurant. Created a cohesive brand identity including custom logo, color scheme, typography, and professionally designed menu layouts that reflect the restaurant\'s unique character and appeal to their target audience.',
         technologies: ['Canva', 'Graphic Design', 'Branding', 'Logo Design', 'Menu Design'],
         year: '2026',
@@ -98,6 +99,50 @@ async function seedData() {
         github_url: '',
         live_url: '',
         order: 5
+      },
+      {
+        title: 'ASCLEPIUS: Dengue Early Warning System',
+        description: 'A community-based dengue tracking and alert system that logs patient symptoms, monitors dengue cases per purok, and triggers early warnings for local health units.',
+        technologies: ['PHP', 'MySQL', 'Leaflet Maps', 'Dengue Case Analytics'],
+        year: '2026',
+        image_url: 'https://imgur.com/your-asclepius.png',
+        video_url: 'https://youtu.be/uxEJ0NEbXLs',
+        github_url: '',
+        live_url: '',
+        order: 6
+      },
+      {
+        title: 'UI/UX Design Showcase',
+        description: 'A modern UI/UX design concept demonstrating clean layouts, smooth transitions, and user-centered flows optimized for digital platforms.',
+        technologies: ['Figma', 'UI/UX', 'Interaction Design'],
+        year: '2026',
+        image_url: 'https://imgur.com/your-uiux-showcase.png',
+        video_url: 'https://youtube.com/shorts/R97IFir5RIQ',
+        github_url: '',
+        live_url: '',
+        order: 7
+      },
+      {
+        title: 'Sign Language Recognition via Machine Learning',
+        description: 'An image-processing model that identifies sign language gestures using machine learning, enabling accessible communication through gesture recognition.',
+        technologies: ['Python', 'Machine Learning', 'Image Processing', 'OpenCV', 'TensorFlow'],
+        year: '2026',
+        image_url: 'https://imgur.com/your-signlang.png',
+        video_url: 'https://youtube.com/shorts/GdnzUOuIQdM',
+        github_url: '',
+        live_url: '',
+        order: 8
+      },
+      {
+        title: 'Multiple Data Entry System',
+        description: 'A data encoding platform designed for efficient multiple-entry operations using bulk input forms and structured validation. This interface demo showcases how form data is organized and processed during batch encoding.\n\nDisclaimer: The image shown is for demonstration purposes only and does not represent real individuals, sensitive information, or violate any privacy or confidentiality.',
+        technologies: ['Web Forms', 'Data Processing', 'UI/UX'],
+        year: '2026',
+        image_url: 'https://imgur.com/a/OShWUg1',
+        video_url: '',
+        github_url: '',
+        live_url: '',
+        order: 9
       }
     ];
 
